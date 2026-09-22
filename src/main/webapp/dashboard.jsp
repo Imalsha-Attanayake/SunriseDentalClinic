@@ -41,7 +41,10 @@
             Register Appointment
         </button>
 
-        <button type="button">View Appointments</button>
+        <button type="button"
+                onclick="window.location.href='<%= request.getContextPath() %>/view-appointments'">
+            View Appointments
+        </button>
 
         <button type="button">Billing</button>
 

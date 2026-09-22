@@ -14,6 +14,10 @@ public class Appointment {
     private LocalTime appointmentTime;
     private String status;
     private String notes;
+    // Additional fields used when displaying appointment details
+    private String patientName;
+    private String dentistName;
+    private String treatmentName;
 
     // Default constructor
     public Appointment() {
@@ -105,5 +109,29 @@ public class Appointment {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public String getDentistName() {
+        return dentistName;
+    }
+
+    public void setDentistName(String dentistName) {
+        this.dentistName = dentistName;
+    }
+
+    public String getTreatmentName() {
+        return treatmentName;
+    }
+
+    public void setTreatmentName(String treatmentName) {
+        this.treatmentName = treatmentName;
     }
 }

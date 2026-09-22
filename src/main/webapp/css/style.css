@@ -327,3 +327,74 @@ body {
 .appointment-form button[type="submit"]:hover {
     background-color: #12566d;
 }
+
+/* =========================
+   View Appointments
+   ========================= */
+
+.appointments-container {
+    max-width: 1200px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.appointments-table th {
+    background: #176b87;
+    color: #ffffff;
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.appointments-table th:first-child {
+    border-radius: 8px 0 0 0;
+}
+
+.appointments-table th:last-child {
+    border-radius: 0 8px 0 0;
+}
+
+.appointments-table td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #374151;
+    vertical-align: middle;
+}
+
+.appointments-table tbody tr:hover {
+    background: #f8fbfc;
+}
+
+.appointments-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.no-data {
+    text-align: center;
+    color: #6b7280;
+    padding: 30px !important;
+}
+
+@media (max-width: 750px) {
+    .appointments-container {
+        width: 95%;
+        padding: 25px 20px;
+    }
+
+    .appointments-table {
+        min-width: 850px;
+    }
+}
