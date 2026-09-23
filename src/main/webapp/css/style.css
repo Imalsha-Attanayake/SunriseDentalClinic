@@ -810,3 +810,31 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+   Logout
+   ========================= */
+
+.logout-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.logout-button {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #c94c4c;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #c94c4c;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.logout-button:hover {
+    background: #c94c4c;
+    color: #ffffff;
+}

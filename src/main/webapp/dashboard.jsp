@@ -2,6 +2,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+    // Prevent browser from caching the protected dashboard
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+
     User loggedInUser = (User) session.getAttribute("loggedInUser");
 
     if (loggedInUser == null) {
@@ -67,6 +72,14 @@
         </button>
 
     </div>
+
+ <div class="logout-section">
+     <button type="button"
+             class="logout-button"
+             onclick="window.location.href='<%= request.getContextPath() %>/logout'">
+         Logout
+     </button>
+ </div>
 
 </div>
 
