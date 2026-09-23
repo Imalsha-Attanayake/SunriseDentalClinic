@@ -726,3 +726,87 @@ body {
         padding: 16px;
     }
 }
+
+/* =========================
+   Reports
+   ========================= */
+
+.reports-container {
+    max-width: 1200px;
+}
+
+.report-summary {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.report-card {
+    background: #f8fbfc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.report-card span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.report-card strong {
+    display: block;
+    color: #176b87;
+    font-size: 24px;
+}
+
+.revenue-card {
+    background: #eef8f7;
+    border-color: #b9dfdc;
+}
+
+.revenue-card strong {
+    font-size: 20px;
+}
+
+.report-table-section {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.report-table-section h2 {
+    color: #176b87;
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.report-table {
+    min-width: 1050px;
+}
+
+.report-table td strong {
+    color: #176b87;
+}
+
+@media (max-width: 1000px) {
+
+    .report-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .reports-container {
+        width: 95%;
+        padding: 25px 20px;
+    }
+
+    .report-summary {
+        grid-template-columns: 1fr;
+    }
+}

@@ -58,8 +58,8 @@ public class AppointmentDAO {
 
         String sql = "SELECT a.appointment_id, a.appointment_number, " +
                 "a.patient_id, p.patient_name, " +
-                "a.dentist_id, d.dentist_name, " +
-                "a.treatment_id, t.treatment_name, " +
+                "a.dentist_id, d.dentist_name, d.consultation_fee, " +
+                "a.treatment_id, t.treatment_name, t.treatment_fee, " +
                 "a.appointment_date, a.appointment_time, " +
                 "a.status, a.notes " +
                 "FROM appointments a " +
@@ -99,6 +99,12 @@ public class AppointmentDAO {
 
                 appointment.setTreatmentName(
                         resultSet.getString("treatment_name"));
+
+                appointment.setTreatmentFee(
+                        resultSet.getDouble("treatment_fee"));
+
+                appointment.setConsultationFee(
+                        resultSet.getDouble("consultation_fee"));
 
                 appointment.setAppointmentDate(
                         resultSet.getDate("appointment_date").toLocalDate());

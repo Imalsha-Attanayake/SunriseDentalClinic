@@ -56,7 +56,10 @@
             Billing
         </button>
 
-        <button type="button">Reports</button>
+        <button type="button"
+                onclick="window.location.href='<%= request.getContextPath() %>/reports'">
+            Reports
+        </button>
 
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/help.jsp'">
