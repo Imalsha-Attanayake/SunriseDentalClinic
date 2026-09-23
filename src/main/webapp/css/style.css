@@ -493,3 +493,186 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+   Billing / Receipt
+   ========================= */
+
+.billing-container {
+    max-width: 900px;
+}
+
+.billing-search-form {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.billing-search-form .form-group {
+    margin-bottom: 15px;
+}
+
+.billing-search-form input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.billing-search-form input:focus {
+    border-color: #176b87;
+    box-shadow: 0 0 0 3px rgba(23, 107, 135, 0.10);
+}
+
+.billing-search-form button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #176b87;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.billing-search-form button:hover {
+    background: #12566d;
+}
+
+.billing-message {
+    margin-top: 20px;
+}
+
+.bill-receipt {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding: 30px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.receipt-header {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #176b87;
+}
+
+.receipt-header h2 {
+    color: #176b87;
+    margin-bottom: 5px;
+}
+
+.receipt-header p {
+    color: #6b7280;
+}
+
+.receipt-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.receipt-details div {
+    background: #f8fbfc;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.receipt-details span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.receipt-details strong {
+    color: #374151;
+    font-size: 15px;
+}
+
+.bill-summary {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 15px;
+}
+
+.bill-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #374151;
+}
+
+.bill-total {
+    margin-top: 5px;
+    padding-top: 15px;
+    border-top: 2px solid #176b87;
+    color: #176b87;
+    font-size: 18px;
+}
+
+.print-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #176b87;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.print-button:hover {
+    background: #12566d;
+}
+
+@media (max-width: 650px) {
+
+    .receipt-details {
+        grid-template-columns: 1fr;
+    }
+
+    .bill-receipt {
+        padding: 20px;
+    }
+}
+
+/* Print only the receipt */
+@media print {
+
+    body {
+        background: #ffffff;
+        display: block;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .dashboard-container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+    }
+
+    .dashboard-container > h1,
+    .dashboard-container > p {
+        display: none;
+    }
+
+    .bill-receipt {
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 20px;
+    }
+}

@@ -51,7 +51,10 @@
             Search Appointment
         </button>
 
-        <button type="button">Billing</button>
+        <button type="button"
+                onclick="window.location.href='<%= request.getContextPath() %>/billing'">
+            Billing
+        </button>
 
         <button type="button">Reports</button>
 

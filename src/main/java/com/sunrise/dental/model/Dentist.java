@@ -7,6 +7,7 @@ public class Dentist {
     private String specialization;
     private String contactNumber;
     private String status;
+    private double consultationFee;
 
     // Default constructor
     public Dentist() {
@@ -14,14 +15,14 @@ public class Dentist {
 
     // Parameterized constructor
     public Dentist(int dentistId, String dentistName, String specialization,
-                   String contactNumber, String status) {
+                   String contactNumber, String status, double consultationFee) {
         this.dentistId = dentistId;
         this.dentistName = dentistName;
         this.specialization = specialization;
         this.contactNumber = contactNumber;
         this.status = status;
+        this.consultationFee = consultationFee;
     }
-
     public int getDentistId() {
         return dentistId;
     }
@@ -61,4 +62,13 @@ public class Dentist {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public double getConsultationFee() {
+        return consultationFee;
+    }
+
+    public void setConsultationFee(double consultationFee) {
+        this.consultationFee = consultationFee;
+    }
+
 }

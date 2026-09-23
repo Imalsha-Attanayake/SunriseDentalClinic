@@ -48,6 +48,10 @@ public class DentistDAO {
                         resultSet.getString("status")
                 );
 
+                dentist.setConsultationFee(
+                        resultSet.getDouble("consultation_fee")
+                );
+
                 dentists.add(dentist);
             }
 

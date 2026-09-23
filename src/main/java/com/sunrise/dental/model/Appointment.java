@@ -20,6 +20,8 @@ public class Appointment {
     private String treatmentName;
     private String patientAddress;
     private String patientContactNumber;
+    private double treatmentFee;
+    private double consultationFee;
 
     // Default constructor
     public Appointment() {
@@ -150,5 +152,25 @@ public class Appointment {
 
     public void setPatientContactNumber(String patientContactNumber) {
         this.patientContactNumber = patientContactNumber;
+    }
+
+    public double getTreatmentFee() {
+        return treatmentFee;
+    }
+
+    public void setTreatmentFee(double treatmentFee) {
+        this.treatmentFee = treatmentFee;
+    }
+
+    public double getConsultationFee() {
+        return consultationFee;
+    }
+
+    public void setConsultationFee(double consultationFee) {
+        this.consultationFee = consultationFee;
+    }
+
+    public double getTotalBill() {
+        return treatmentFee + consultationFee;
     }
 }

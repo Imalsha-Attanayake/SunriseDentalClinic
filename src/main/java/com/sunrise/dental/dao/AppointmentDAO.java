@@ -129,7 +129,9 @@ public class AppointmentDAO {
                 "p.address AS patient_address, " +
                 "p.contact_number AS patient_contact_number, " +
                 "d.dentist_name, " +
-                "t.treatment_name " +
+                "d.consultation_fee, " +
+                "t.treatment_name, " +
+                "t.treatment_fee " +
                 "FROM appointments a " +
                 "JOIN patients p ON a.patient_id = p.patient_id " +
                 "JOIN dentists d ON a.dentist_id = d.dentist_id " +
@@ -188,6 +190,12 @@ public class AppointmentDAO {
 
                     appointment.setTreatmentName(
                             resultSet.getString("treatment_name"));
+
+                    appointment.setTreatmentFee(
+                            resultSet.getDouble("treatment_fee"));
+
+                    appointment.setConsultationFee(
+                            resultSet.getDouble("consultation_fee"));
 
                     return appointment;
                 }
