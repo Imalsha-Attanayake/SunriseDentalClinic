@@ -58,7 +58,10 @@
 
         <button type="button">Reports</button>
 
-        <button type="button">Help</button>
+        <button type="button"
+                onclick="window.location.href='<%= request.getContextPath() %>/help.jsp'">
+            Help
+        </button>
 
     </div>
 

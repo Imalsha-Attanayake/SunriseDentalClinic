@@ -676,3 +676,53 @@ body {
         padding: 20px;
     }
 }
+
+/* =========================
+   Help / User Guide
+   ========================= */
+
+.help-container {
+    max-width: 900px;
+}
+
+.help-section {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.help-item {
+    background: #f8fbfc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.help-item h2 {
+    color: #176b87;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.help-item p {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.help-item strong {
+    color: #374151;
+}
+
+@media (max-width: 650px) {
+
+    .help-container {
+        width: 95%;
+        padding: 25px 20px;
+    }
+
+    .help-item {
+        padding: 16px;
+    }
+}
