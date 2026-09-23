@@ -12,14 +12,53 @@ import java.util.List;
 
 public class PatientDAO {
 
+    // Add a new patient
+    public boolean addPatient(Patient patient) {
+
+        String sql = "INSERT INTO patients " +
+                "(patient_name, address, contact_number) " +
+                "VALUES (?, ?, ?)";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(
+                    1,
+                    patient.getPatientName()
+            );
+
+            statement.setString(
+                    2,
+                    patient.getAddress()
+            );
+
+            statement.setString(
+                    3,
+                    patient.getContactNumber()
+            );
+
+            int rowsAffected = statement.executeUpdate();
+
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    // Retrieve all patients
     public List<Patient> getAllPatients() {
 
         List<Patient> patients = new ArrayList<>();
 
-        String sql = "SELECT * FROM patients ORDER BY patient_name";
+        String sql =
+                "SELECT * FROM patients ORDER BY patient_name";
 
         try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql);
+             PreparedStatement statement =
+                     connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {

@@ -41,51 +41,66 @@
 
     <div class="dashboard-menu">
 
+        <!-- Register Patient -->
+        <button type="button"
+                onclick="window.location.href='<%= request.getContextPath() %>/patient'">
+            Register Patient
+        </button>
+
+        <!-- Register Appointment -->
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/appointment'">
             Register Appointment
         </button>
 
+        <!-- View Appointments -->
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/view-appointments'">
             View Appointments
         </button>
 
+        <!-- Search Appointment -->
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/search-appointment'">
             Search Appointment
         </button>
 
+        <!-- Billing -->
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/billing'">
             Billing
         </button>
 
+        <!-- Reports -->
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/reports'">
             Reports
         </button>
 
+        <!-- Help -->
         <button type="button"
                 onclick="window.location.href='<%= request.getContextPath() %>/help.jsp'">
             Help
         </button>
 
-
+        <!-- API Viewer -->
         <button type="button"
-               onclick="window.location.href='<%= request.getContextPath() %>/apiAppointments.jsp'">
-           Appointment API Viewer
+                onclick="window.location.href='<%= request.getContextPath() %>/apiAppointments.jsp'">
+            Appointment API Viewer
         </button>
+
     </div>
 
 
- <div class="logout-section">
-     <button type="button"
-             class="logout-button"
-             onclick="window.location.href='<%= request.getContextPath() %>/logout'">
-         Logout
-     </button>
- </div>
+    <div class="logout-section">
+
+        <button type="button"
+                class="logout-button"
+                onclick="window.location.href='<%= request.getContextPath() %>/logout'">
+            Logout
+        </button>
+
+    </div>
 
 </div>
 
