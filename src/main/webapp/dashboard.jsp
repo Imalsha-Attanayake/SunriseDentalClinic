@@ -46,6 +46,11 @@
             View Appointments
         </button>
 
+        <button type="button"
+                onclick="window.location.href='<%= request.getContextPath() %>/search-appointment'">
+            Search Appointment
+        </button>
+
         <button type="button">Billing</button>
 
         <button type="button">Reports</button>

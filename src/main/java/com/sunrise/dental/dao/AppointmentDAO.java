@@ -121,4 +121,83 @@ public class AppointmentDAO {
 
         return appointments;
     }
+
+    public Appointment getAppointmentByNumber(String appointmentNumber) {
+
+        String sql = "SELECT a.*, " +
+                "p.patient_name, " +
+                "p.address AS patient_address, " +
+                "p.contact_number AS patient_contact_number, " +
+                "d.dentist_name, " +
+                "t.treatment_name " +
+                "FROM appointments a " +
+                "JOIN patients p ON a.patient_id = p.patient_id " +
+                "JOIN dentists d ON a.dentist_id = d.dentist_id " +
+                "JOIN treatments t ON a.treatment_id = t.treatment_id " +
+                "WHERE a.appointment_number = ?";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, appointmentNumber);
+
+            try (java.sql.ResultSet resultSet = statement.executeQuery()) {
+
+                if (resultSet.next()) {
+
+                    Appointment appointment = new Appointment();
+
+                    appointment.setAppointmentId(
+                            resultSet.getInt("appointment_id"));
+
+                    appointment.setAppointmentNumber(
+                            resultSet.getString("appointment_number"));
+
+                    appointment.setPatientId(
+                            resultSet.getInt("patient_id"));
+
+                    appointment.setDentistId(
+                            resultSet.getInt("dentist_id"));
+
+                    appointment.setTreatmentId(
+                            resultSet.getInt("treatment_id"));
+
+                    appointment.setAppointmentDate(
+                            resultSet.getDate("appointment_date").toLocalDate());
+
+                    appointment.setAppointmentTime(
+                            resultSet.getTime("appointment_time").toLocalTime());
+
+                    appointment.setStatus(
+                            resultSet.getString("status"));
+
+                    appointment.setNotes(
+                            resultSet.getString("notes"));
+
+                    appointment.setPatientName(
+                            resultSet.getString("patient_name"));
+
+                    appointment.setPatientAddress(
+                            resultSet.getString("patient_address"));
+
+                    appointment.setPatientContactNumber(
+                            resultSet.getString("patient_contact_number"));
+
+                    appointment.setDentistName(
+                            resultSet.getString("dentist_name"));
+
+                    appointment.setTreatmentName(
+                            resultSet.getString("treatment_name"));
+
+                    return appointment;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

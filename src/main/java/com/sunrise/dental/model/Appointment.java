@@ -18,6 +18,8 @@ public class Appointment {
     private String patientName;
     private String dentistName;
     private String treatmentName;
+    private String patientAddress;
+    private String patientContactNumber;
 
     // Default constructor
     public Appointment() {
@@ -133,5 +135,20 @@ public class Appointment {
 
     public void setTreatmentName(String treatmentName) {
         this.treatmentName = treatmentName;
+    }
+    public String getPatientAddress() {
+        return patientAddress;
+    }
+
+    public void setPatientAddress(String patientAddress) {
+        this.patientAddress = patientAddress;
+    }
+
+    public String getPatientContactNumber() {
+        return patientContactNumber;
+    }
+
+    public void setPatientContactNumber(String patientContactNumber) {
+        this.patientContactNumber = patientContactNumber;
     }
 }

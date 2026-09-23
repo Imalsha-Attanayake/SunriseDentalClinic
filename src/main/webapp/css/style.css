@@ -398,3 +398,98 @@ body {
         min-width: 850px;
     }
 }
+
+/* =========================
+   Search Appointment
+   ========================= */
+
+.search-form {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.search-form .form-group {
+    margin-bottom: 15px;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+.search-form input:focus {
+    border-color: #176b87;
+    box-shadow: 0 0 0 3px rgba(23, 107, 135, 0.10);
+}
+
+.search-form button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #176b87;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.search-form button:hover {
+    background: #12566d;
+}
+
+.search-message {
+    margin-top: 20px;
+}
+
+.appointment-details {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.appointment-details h2 {
+    color: #176b87;
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.detail-item {
+    background: #f8fbfc;
+    border: 1px solid #e5e7eb;
+    border-radius: 9px;
+    padding: 15px;
+}
+
+.detail-item span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.detail-item strong {
+    display: block;
+    color: #374151;
+    font-size: 15px;
+    word-break: break-word;
+}
+
+@media (max-width: 650px) {
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
