@@ -71,7 +71,13 @@
             Help
         </button>
 
+
+        <button type="button"
+               onclick="window.location.href='<%= request.getContextPath() %>/apiAppointments.jsp'">
+           Appointment API Viewer
+        </button>
     </div>
+
 
  <div class="logout-section">
      <button type="button"
