@@ -78,6 +78,102 @@ public class AppointmentServlet extends HttpServlet {
             String notes =
                     request.getParameter("notes");
 
+
+            // Server-side validation
+            if (appointmentNumber == null ||
+                    appointmentNumber.trim().isEmpty()) {
+
+                request.setAttribute(
+                        "errorMessage",
+                        "Appointment number is required."
+                );
+
+                loadFormData(request);
+
+                request.getRequestDispatcher("/appointment.jsp")
+                        .forward(request, response);
+
+                return;
+            }
+
+            appointmentNumber = appointmentNumber.trim();
+
+
+            // Check for duplicate appointment number
+            if (appointmentDAO.appointmentNumberExists(
+                    appointmentNumber)) {
+
+                request.setAttribute(
+                        "errorMessage",
+                        "Appointment number already exists. " +
+                                "Please use a different appointment number."
+                );
+
+                loadFormData(request);
+
+                request.getRequestDispatcher("/appointment.jsp")
+                        .forward(request, response);
+
+                return;
+            }
+
+
+            // Validate selected IDs
+            if (patientId <= 0 ||
+                    dentistId <= 0 ||
+                    treatmentId <= 0) {
+
+                request.setAttribute(
+                        "errorMessage",
+                        "Please select a valid patient, dentist and treatment."
+                );
+
+                loadFormData(request);
+
+                request.getRequestDispatcher("/appointment.jsp")
+                        .forward(request, response);
+
+                return;
+            }
+
+
+            // Prevent past appointment dates
+            if (appointmentDate.isBefore(LocalDate.now())) {
+
+                request.setAttribute(
+                        "errorMessage",
+                        "Appointment date cannot be in the past."
+                );
+
+                loadFormData(request);
+
+                request.getRequestDispatcher("/appointment.jsp")
+                        .forward(request, response);
+
+                return;
+            }
+
+
+            // Validate appointment status
+            if (status == null ||
+                    (!status.equals("Scheduled") &&
+                            !status.equals("Completed") &&
+                            !status.equals("Cancelled"))) {
+
+                request.setAttribute(
+                        "errorMessage",
+                        "Please select a valid appointment status."
+                );
+
+                loadFormData(request);
+
+                request.getRequestDispatcher("/appointment.jsp")
+                        .forward(request, response);
+
+                return;
+            }
+
+
             // Create Appointment object
             Appointment appointment = new Appointment();
 
@@ -89,6 +185,7 @@ public class AppointmentServlet extends HttpServlet {
             appointment.setAppointmentTime(appointmentTime);
             appointment.setStatus(status);
             appointment.setNotes(notes);
+
 
             // Save appointment
             boolean success =
@@ -119,12 +216,14 @@ public class AppointmentServlet extends HttpServlet {
             );
         }
 
+
         // Reload dropdown data after form submission
         loadFormData(request);
 
         request.getRequestDispatcher("/appointment.jsp")
                 .forward(request, response);
     }
+
 
     // Load patients, dentists and treatments for dropdowns
     private void loadFormData(HttpServletRequest request) {

@@ -214,4 +214,30 @@ public class AppointmentDAO {
         return null;
     }
 
+    public boolean appointmentNumberExists(String appointmentNumber) {
+
+        String sql =
+                "SELECT COUNT(*) FROM appointments " +
+                        "WHERE appointment_number = ?";
+
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement =
+                     connection.prepareStatement(sql)) {
+
+            statement.setString(1, appointmentNumber);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+
+                if (resultSet.next()) {
+                    return resultSet.getInt(1) > 0;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
 }
