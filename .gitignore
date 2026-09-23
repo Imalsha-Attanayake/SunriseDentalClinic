@@ -40,5 +40,3 @@ build/
 
 .idea/
 
-# Database connection credentials
-src/main/java/com/sunrise/dental/util/DBConnection.java
